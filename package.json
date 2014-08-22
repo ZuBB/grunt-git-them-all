@@ -1,23 +1,23 @@
 {
-  "name": "grunt-gta",
+  "name": "grunt-git-them-all",
   "description": "All Git commands for grunt",
   "version": "0.0.1",
-  "homepage": "https://github.com/ZuBB/grunt-gta",
+  "homepage": "https://github.com/ZuBB/grunt-git-them-all",
   "author": {
     "name": "Vasyl Zuzyak",
     "email": "zvasylvv@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ZuBB/grunt-gta.git"
+    "url": "git://github.com/ZuBB/grunt-git-them-all.git"
   },
   "bugs": {
-    "url": "https://github.com/ZuBB/grunt-gta/issues"
+    "url": "https://github.com/ZuBB/grunt-git-them-all/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/ZuBB/grunt-gta/blob/master/LICENSE-MIT"
+      "url": "https://github.com/ZuBB/grunt-git-them-all/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
