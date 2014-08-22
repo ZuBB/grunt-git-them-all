@@ -18,6 +18,7 @@ module.exports = function(grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             cwd: process.cwd(),
+            command: null,
 
             punctuation: '.',
             separator: ', ',
