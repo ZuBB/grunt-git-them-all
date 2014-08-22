@@ -1,0 +1,41 @@
+{
+  "name": "grunt-gta",
+  "description": "Git commands for grunt",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ZuBB/grunt-gta",
+  "author": {
+    "name": "Vasyl Zuzyak",
+    "email": "zvasylvv@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ZuBB/grunt-gta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZuBB/grunt-gta/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ZuBB/grunt-gta/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
