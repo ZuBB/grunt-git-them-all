@@ -1,6 +1,6 @@
 {
   "name": "grunt-gta",
-  "description": "Git commands for grunt",
+  "description": "All Git commands for grunt",
   "version": "0.0.1",
   "homepage": "https://github.com/ZuBB/grunt-gta",
   "author": {

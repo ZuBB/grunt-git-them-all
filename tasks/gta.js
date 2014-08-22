@@ -12,7 +12,7 @@ var exec = require('child_process').exec;
 module.exports = function(grunt) {
     // Please see the Grunt documentation for more information regarding task
     // creation: http://gruntjs.com/creating-tasks
-    grunt.registerMultiTask('grunt-gta', 'Git commands for grunt', function() {
+    grunt.registerMultiTask('grunt-gta', 'All Git commands for grunt', function() {
 
         var cb = this.async();
         // Merge task-specific and/or target-specific options with these defaults.
