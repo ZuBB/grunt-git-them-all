@@ -10,26 +10,20 @@
 var exec = require('child_process').exec;
 
 module.exports = function(grunt) {
-    // Please see the Grunt documentation for more information regarding task
-    // creation: http://gruntjs.com/creating-tasks
     grunt.registerMultiTask('gta', 'All Git commands for grunt', function() {
 
         var cb = this.async();
-        // Merge task-specific and/or target-specific options with these defaults.
+        var cmd = this.data.command;
         var options = this.options({
-            cwd: process.cwd(),
-            command: null,
-
-            punctuation: '.',
-            separator: ', ',
+            failOnError: true,
 
             stdout: false,
             stderr: false,
 
-            failOnError: true
-        });
+            storeOutputTo: '',
 
-        var cmd = this.data.command;
+            cwd: null
+        });
 
         if (typeof cmd !== 'string') {
             throw new Error('`command` required');
@@ -45,18 +39,23 @@ module.exports = function(grunt) {
             }
 
             cb();
-        }.bind(this));
+        });
 
-        var captureOutput = function (child, output) {
-            child.pipe(output);
-        };
+        var check1 = options.storeOutputTo !== '';
+        var check2 = typeof options.storeOutputTo === 'string';
+
+        if (check1 && check2) {
+            // https://github.com/gruntjs/grunt/issues/1207
+            //grunt.config(options.storeOutputTo, process.stdout);
+            GLOBAL[options.storeOutputTo] = process.stdout.toString();
+        }
 
         if (options.stdout || grunt.option('verbose')) {
-            captureOutput(cp.stdout, process.stdout);
+            cp.stdout.pipe(process.stdout);
         }
 
         if (options.stderr || grunt.option('verbose')) {
-            captureOutput(cp.stderr, process.stderr);
+            cp.stderr.pipe(process.stderr);
         }
     });
 };
