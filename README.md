@@ -99,8 +99,8 @@ grunt.initConfig({
             options: {
                 stdout: true
             }
-        }
-    }
+        },
+    },
 });
 
 grunt.initConfig({
@@ -119,23 +119,23 @@ grunt.initConfig({
             options: {
                 stderr: true
             }
-        }
-    }
+        },
+    },
 });
 
 grunt.initConfig({
     gta: {
-        mix_target: {
+        branch: {
             command: 'git rev-parse --abbrev-ref HEAD'
             options: {
                 storeOutputTo: 'currentBranch'
             }
-        }
-    }
+        },
+    },
 });
 ...
-grunt.registerTask('git', 'check count of modified files', function() {
-    console.log(parseInt(currentBranch));
+grunt.registerTask('git-branch', 'print current branch', function() {
+    grunt.log.writeln('current branch is: ' + currentBranch);
 });
 ```
 
