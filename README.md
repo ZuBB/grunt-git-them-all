@@ -7,8 +7,8 @@
 We already have nice and fancy, well tested and fully configuralble [plugin](https://github.com/rubenv/grunt-git) for that. So what its wrong with it?
 
 * It used to not support run of git commands in custom path. I come with a PR, but ... it was bad. Other guy did a better one, but it still requires one more option to have all that work.
-* I needed to run a command that were not supported by that plugin. I came with PR, but ... it does not have tests (yea, I am lazy a bit)
-* I needed to run a command that were supported by that plugin. And ... (you are right, I faced smth wrong even here) its done a bit wrong and does not support adding new options
+* I needed to run a command that was not supported by that plugin. I came with PR, but ... it does not have tests (yea, I am lazy a bit)
+* I needed to run a command that was supported by that plugin. And ... (you are right, I faced smth wrong even here) its done a bit wrong and does not support adding new options
 
 Ok, lets try to find some pros for that plugin. It supports dozen of tasks/commands which have tons of options. All that crowd turns into words and than into final string with word 'git' at start. And only after that its being invoked. Still as a shell command.
 
