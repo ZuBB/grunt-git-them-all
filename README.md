@@ -115,7 +115,7 @@ grunt.initConfig({
             }
         },
         target_b: {
-            command': 'push origin master'
+            command: 'push origin master'
             options: {
                 stderr: true
             }
@@ -126,7 +126,7 @@ grunt.initConfig({
 grunt.initConfig({
     gta: {
         mix_target: {
-            command': 'git rev-parse --abbrev-ref HEAD'
+            command: 'git rev-parse --abbrev-ref HEAD'
             options: {
                 storeOutputTo: 'currentBranch'
             }
