@@ -87,7 +87,7 @@ Show stderr in the terminal.
 Type: `string`
 Default: `(empty string)`
 
-Store command's output to global variable with specified name
+Store output of the command to grunt's config by specified key
 
 #### options.postProcessOutput
 
