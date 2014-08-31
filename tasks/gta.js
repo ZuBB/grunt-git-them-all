@@ -21,6 +21,7 @@ module.exports = function(grunt) {
             stderr: false,
 
             storeOutputTo: '',
+            postProcessOutput: null,
 
             cwd: null
         });
@@ -45,9 +46,12 @@ module.exports = function(grunt) {
         var check2 = typeof options.storeOutputTo === 'string';
 
         if (check1 && check2) {
+            var output = process.stdout.toString();
+            var postProcess = typeof options.postProcessOutput === 'function';
+            output = postProcess ? options.postProcessOutput(output) : output;
             // https://github.com/gruntjs/grunt/issues/1207
             //grunt.config(options.storeOutputTo, process.stdout);
-            GLOBAL[options.storeOutputTo] = process.stdout.toString();
+            GLOBAL[options.storeOutputTo] = output;
         }
 
         if (options.stdout || grunt.option('verbose')) {
