@@ -89,6 +89,13 @@ Default: `(empty string)`
 
 Store command's output to global variable with specified name
 
+#### options.postProcessOutput
+
+Type: `function`
+Default: `null`
+
+Does postprocessing of output before it will be stored. Requires **storeOutputTo** to be set
+
 ### Usage Examples
 
 ```js
@@ -129,6 +136,9 @@ grunt.initConfig({
             command: 'git rev-parse --abbrev-ref HEAD'
             options: {
                 storeOutputTo: 'currentBranch'
+                postProcessOutput: function(output) {
+                    return output.trim();
+                }
             }
         },
     },
