@@ -11,7 +11,6 @@ var exec = require('child_process').exec;
 
 module.exports = function(grunt) {
     grunt.registerMultiTask('gta', 'All Git commands for grunt', function() {
-
         var cb = this.async();
         var cmd = this.data.command;
         var options = this.options({
@@ -31,10 +30,9 @@ module.exports = function(grunt) {
         }
 
         cmd = 'git ' + cmd;
-
         grunt.verbose.writeln('Command:', cmd);
 
-        var cp = exec(cmd, {cwd: options.cwd}, function (error) {
+        var childProcess = exec(cmd, {cwd: options.cwd}, function (error) {
             if (error && options.failOnError) {
                 grunt.warn(error);
             }
@@ -42,24 +40,26 @@ module.exports = function(grunt) {
             cb();
         });
 
-        var check1 = options.storeOutputTo !== '';
-        var check2 = typeof options.storeOutputTo === 'string';
+        var output = '';
+        var func = options.postProcessOutput;
+        var variable = options.storeOutputTo;
 
-        if (check1 && check2) {
-            var output = process.stdout.toString();
-            var postProcess = typeof options.postProcessOutput === 'function';
-            output = postProcess ? options.postProcessOutput(output) : output;
-            // https://github.com/gruntjs/grunt/issues/1207
-            //grunt.config(options.storeOutputTo, process.stdout);
-            GLOBAL[options.storeOutputTo] = output;
+        if (typeof variable === 'string' && variable !== '') {
+            childProcess.stdout.on('data', function(buf) {
+                output += buf.toString();
+            });
+            childProcess.stdout.on('end', function() {
+                var value = typeof func === 'function' ? func(output) : output;
+                grunt.config(variable, value);
+            });
         }
 
         if (options.stdout || grunt.option('verbose')) {
-            cp.stdout.pipe(process.stdout);
+            childProcess.stdout.pipe(process.stdout);
         }
 
         if (options.stderr || grunt.option('verbose')) {
-            cp.stderr.pipe(process.stderr);
+            childProcess.stderr.pipe(process.stderr);
         }
     });
 };
