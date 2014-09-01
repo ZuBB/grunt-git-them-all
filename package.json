@@ -1,7 +1,7 @@
 {
   "name": "grunt-git-them-all",
   "description": "All Git commands for grunt",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/ZuBB/grunt-git-them-all",
   "author": {
     "name": "Vasyl Zuzyak",
