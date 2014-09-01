@@ -32,7 +32,7 @@ grunt.loadNpmTasks('grunt-git-them-all');
 ## The "gta" task
 
 ### Overview
-In your project's Gruntfile, add a section named `gta` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `gta` (aka **G**it **T**hem **A**ll) to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
