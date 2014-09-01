@@ -57,7 +57,7 @@ A string that will be trailing part of the shell command. **Required**
 
 #### options.cwd
 Type: `String`
-Default value: `process.cwd()`
+Default value: `null`
 
 A path where git command will be run
 
