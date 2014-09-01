@@ -118,7 +118,7 @@ grunt.initConfig({
         target_a: {
             command: 'tag "v0.5.0"',
             options: {
-                    stderr: true
+                stderr: true
             }
         },
         target_b: {
