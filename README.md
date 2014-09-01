@@ -145,7 +145,7 @@ grunt.initConfig({
 });
 ...
 grunt.registerTask('git-branch', 'print current branch', function() {
-    grunt.log.writeln('current branch is: ' + currentBranch);
+    grunt.log.writeln('current branch is: ' + grunt.config('currentBranch'));
 });
 ```
 
