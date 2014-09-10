@@ -51,7 +51,7 @@ grunt.initConfig({
 Type: `String`
 Default value: `null`
 
-A string that will be trailing part of the shell command. **Required**
+Any command that is supported by git cli application. **Required**
 
 ### Options
 
@@ -133,7 +133,7 @@ grunt.initConfig({
 grunt.initConfig({
     gta: {
         branch: {
-            command: 'git rev-parse --abbrev-ref HEAD'
+            command: 'rev-parse --abbrev-ref HEAD'
             options: {
                 storeOutputTo: 'currentBranch'
                 postProcessOutput: function(output) {
