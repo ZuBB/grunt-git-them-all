@@ -12,7 +12,7 @@ var exec = require('child_process').exec;
 module.exports = function(grunt) {
     grunt.registerMultiTask('gta', 'All Git commands for grunt', function() {
         var cb = this.async();
-        var cmd = this.data.command;
+        var cmd = this.data.command.trim();
         var options = this.options({
             failOnError: true,
 
@@ -29,7 +29,10 @@ module.exports = function(grunt) {
             throw new Error('`command` required');
         }
 
-        cmd = 'git ' + cmd;
+        if (cmd.indexOf('git ') !== 0) {
+            cmd = 'git ' + cmd;
+        }
+
         grunt.verbose.writeln('Command:', cmd);
 
         var childProcess = exec(cmd, {cwd: options.cwd}, function (error) {
