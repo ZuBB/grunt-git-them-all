@@ -55,6 +55,10 @@ module.exports = function(grunt) {
         },
 
         // Unit tests.
+        release: {
+        },
+
+        // Unit tests.
         nodeunit: {
             tests: ['test/*_test.js']
         }
@@ -68,6 +72,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
+    grunt.loadNpmTasks('grunt-release');
 
     grunt.registerTask('dumpVar', 'prints variable content', function() {
         console.log(grunt.config('var1'));
