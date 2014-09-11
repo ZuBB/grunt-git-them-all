@@ -51,7 +51,7 @@ grunt.initConfig({
 Type: `String`
 Default value: `null`
 
-Any command that is supported by git cli application. **Required**
+Git command you want to run. Its not mandatory to specify leading `git`. **Required**
 
 ### Options
 
