@@ -11,49 +11,47 @@ var exec = require('child_process').exec;
 
 module.exports = function(grunt) {
     grunt.registerMultiTask('gta', 'All Git commands for grunt', function() {
-        var cb = this.async();
-        var cmd = this.data.command.trim();
+        var text = '';
+        var done = this.async();
+        var command = (this.data.command || '').toString().trim();
         var options = this.options({
             failOnError: true,
 
             stdout: false,
             stderr: false,
 
-            storeOutputTo: '',
-            postProcessOutput: null,
+            storeOutputTo: null,
+            postProcessOutput: function(text) { return text; },
 
             cwd: null
         });
 
-        if (typeof cmd !== 'string') {
+        if (command.length < 1) {
             throw new Error('`command` required');
         }
 
-        if (cmd.indexOf('git ') !== 0) {
-            cmd = 'git ' + cmd;
+        if (command.indexOf('git ') !== 0) {
+            command = 'git ' + command;
         }
 
-        grunt.verbose.writeln('Command:', cmd);
+        grunt.verbose.writeln('Command:', command);
 
-        var childProcess = exec(cmd, {cwd: options.cwd}, function (error) {
+        var childProcess = exec(command, {cwd: options.cwd}, function (error) {
             if (error && options.failOnError) {
                 grunt.warn(error);
             }
 
-            cb();
+            done();
         });
 
-        var output = '';
-        var func = options.postProcessOutput;
-        var variable = options.storeOutputTo;
-
-        if (typeof variable === 'string' && variable !== '') {
+        if (options.storeOutputTo) {
             childProcess.stdout.on('data', function(buf) {
-                output += buf.toString();
+                text += buf.toString();
             });
+
             childProcess.stdout.on('end', function() {
-                var value = typeof func === 'function' ? func(output) : output;
-                grunt.config(variable, value);
+                var variable = options.storeOutputTo.toString().trim();
+                grunt.config(variable, options.postProcessOutput(text));
             });
         }
 
