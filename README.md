@@ -48,51 +48,51 @@ grunt.initConfig({
 ```
 
 ### Command
-Type: `String`
-Default value: `null`
+Type: `String`<br />
+Default value: `undefined`
 
 Git command you want to run. Its not mandatory to specify leading `git`. **Required**
 
 ### Options
 
 #### options.cwd
-Type: `String`
+Type: `String`<br />
 Default value: `null`
 
 A path where git command will be run
 
 #### options.failOnError
 
-Type: `boolean`
+Type: `boolean`<br />
 Default: `true`
 
 Fail task if it encounters an error
 
 #### options.stdout
 
-Type: `boolean`
+Type: `boolean`<br />
 Default: `false`
 
 Show stdout in the terminal.
 
 #### options.stderr
 
-Type: `boolean`
+Type: `boolean`<br />
 Default: `false`
 
 Show stderr in the terminal.
 
 #### options.storeOutputTo
 
-Type: `string`
-Default: `(empty string)`
+Type: `string`<br />
+Default: `null`
 
 Store output of the command to grunt's config by specified key
 
 #### options.postProcessOutput
 
-Type: `function`
-Default: `null`
+Type: `function`<br />
+Default: `function(text) { return text; }`
 
 Does postprocessing of output before it will be stored. Requires **storeOutputTo** to be set
 
