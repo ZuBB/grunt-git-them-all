@@ -27,7 +27,7 @@ module.exports = function(grunt) {
         });
 
         if (command.length < 1) {
-            throw new Error('`command` required');
+            grunt.fail.fatal('`command` required');
         }
 
         if (command.indexOf('git ') !== 0) {
@@ -64,3 +64,4 @@ module.exports = function(grunt) {
         }
     });
 };
+
