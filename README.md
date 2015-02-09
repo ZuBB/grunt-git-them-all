@@ -1,3 +1,9 @@
+# Announcement
+
+This plugin is not being developed anymore. I recommend to use [grunt-simple-git](https://github.com/tandrewnichols/grunt-simple-git)
+
+---------
+
 # grunt-git? no, its better! its "grunt, git them all"!
 
 > All Git commands for grunt
